@@ -8,5 +8,6 @@
     "CONFIRMED",
     "CANDIDATE",
     "FALSE POSITIVE"
-  ]
+  ],
+  "tess_recall": 0.3326
 }
