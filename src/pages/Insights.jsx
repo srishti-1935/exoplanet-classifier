@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, LineChart, Line, CartesianGrid } from 'recharts'
 
-const API = 'http://localhost:8000'
+const API = 'https://exoplanet-classifier-api.onrender.com'
 
 const Card = ({ children, title, style }) => (
   <div style={{ background: '#0d1525', border: '1px solid #1e3a5f', borderRadius: '12px', padding: '1.5rem', ...style }}>

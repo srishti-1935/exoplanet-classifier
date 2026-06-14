@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const API = 'http://localhost:8000'
+const API = 'https://exoplanet-classifier-api.onrender.com'
 
 const Card = ({ children, style }) => (
   <div style={{ background: '#0d1525', border: '1px solid #1e3a5f', borderRadius: '12px', padding: '1.5rem', ...style }}>{children}</div>
@@ -17,6 +17,7 @@ const fields = [
   { name: 'koi_steff', label: 'Stellar Temp', unit: 'K', tip: 'Temperature of the host star' },
   { name: 'koi_slogg', label: 'Stellar Surface Gravity', unit: 'log g', tip: 'Surface gravity of the host star' },
   { name: 'koi_srad', label: 'Stellar Radius', unit: 'Solar radii', tip: 'Size of the host star' },
+  { name: 'koi_model_snr', label: 'Model SNR', unit: 'ratio', tip: 'Signal to noise ratio of the transit' },
 ]
 
 export default function Classify() {
@@ -36,7 +37,7 @@ export default function Classify() {
       const res = await fetch(`${API}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify(Object.fromEntries(Object.entries(form).map(([k, v]) => [k, parseFloat(v)])))
       })
       setResult(await res.json())
     } catch {
