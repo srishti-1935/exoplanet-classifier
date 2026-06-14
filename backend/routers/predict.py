@@ -1,3 +1,15 @@
+from fastapi import APIRouter, HTTPException
+from schemas.transit import TransitRecord, PredictionResult
+import joblib
+import pandas as pd
+
+router = APIRouter()
+
+try:
+    model = joblib.load("models/model.pkl")
+except:
+    model = None
+
 @router.post("/predict", response_model=PredictionResult)
 def predict(record: TransitRecord):
     if model is None:
