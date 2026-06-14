@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, NavLink } from 'react-router-dom'
-import Home from './Home'
-import Classify from './Classify'
-import Insights from './Insights'
-import HyperparamLab from './Hyperparamlab'
+import Home from './pages/Home'
+import Classify from './pages/Classify'
+import Insights from './pages/Insights'
+import HyperparamLab from './pages/Hyperparamlab'
 import './index.css'
 
 function App() {
