@@ -39,11 +39,9 @@ def align_k2_to_kepler(k2_df, kepler_df):
         "pl_eqt": "koi_teq",
         "st_mass": "koi_smass",
     }
-
     k2_aligned = k2_df.rename(columns=column_map)
     common_cols = [c for c in kepler_df.columns if c in k2_aligned.columns]
     k2_aligned = k2_aligned[common_cols]
-
     print(f"K2 aligned: {k2_aligned.shape[0]} rows, {k2_aligned.shape[1]} common cols")
     return k2_aligned
 

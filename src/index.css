@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #e2e8f0;
+  min-height: 100vh;
+  background: #020817;
+  position: relative;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 80% 80% at 15% 60%, #0a2a4a 0%, transparent 60%),
+    radial-gradient(ellipse 60% 60% at 80% 30%, #0d1f3c 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 90% 80%, #050d1f 0%, transparent 50%),
+    #020817;
+}
+
+/* Big glowing planet bottom-left */
+body::after {
+  content: '';
+  position: fixed;
+  bottom: -180px;
+  left: -120px;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%,
+    #1a4a7a 0%,
+    #0e2d50 30%,
+    #071828 60%,
+    #030e1a 80%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 80px 20px #0e4a7a55,
+    0 0 160px 40px #0a2a4a33,
+    0 0 300px 80px #05121f22;
+  z-index: 0;
+  pointer-events: none;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stars layer */
+#root::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(1px 1px at 10% 15%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 25% 8%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 40% 20%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 5%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 70% 18%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 85% 10%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 25%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 15% 35%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 30% 45%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 50% 30%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 65% 40%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 78% 35%, rgba(255,255,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 88% 50%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 5% 55%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 20% 65%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 45% 58%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 60% 70%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 75% 62%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 95% 68%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 35% 78%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(2px 2px at 48% 85%, rgba(200,220,255,0.9) 0%, transparent 100%),
+    radial-gradient(1px 1px at 82% 80%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 12% 90%, rgba(255,255,255,0.8) 0%, transparent 100%),
+    radial-gradient(1px 1px at 58% 92%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 72% 88%, rgba(180,210,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 90% 92%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(2px 2px at 33% 12%, rgba(34,211,238,0.5) 0%, transparent 100%),
+    radial-gradient(2px 2px at 67% 55%, rgba(34,211,238,0.4) 0%, transparent 100%),
+    radial-gradient(2px 2px at 18% 75%, rgba(34,211,238,0.3) 0%, transparent 100%);
+}
+
+/* Small moon / second planet top right */
+.planet-small {
+  position: fixed;
+  top: 60px;
+  right: 80px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%,
+    #1e3a5f 0%,
+    #0e2040 40%,
+    #060e1f 75%,
+    transparent 100%
+  );
+  box-shadow:
+    0 0 30px 8px #0e4a7a33,
+    0 0 60px 15px #05121f22;
+  z-index: 0;
+  pointer-events: none;
+}
+
+:root {
+  --cyan: #22d3ee;
+  --cyan-dim: #0e7490;
+  --card: #080f1ecc;
+  --border: #1e3a5f;
+  --text-muted: #64748b;
+  --green: #4ade80;
+  --red: #f87171;
+  --yellow: #fbbf24;
+}
+
+a { text-decoration: none; color: inherit; }
+button { cursor: pointer; font-family: inherit; }
+input, select { font-family: inherit; }

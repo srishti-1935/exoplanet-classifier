@@ -5,26 +5,18 @@ import os
 DATA_DIR = "data"
 
 def engineer_kepler_features(df):
-    # depth × duration interaction
     if "koi_depth" in df.columns and "koi_duration" in df.columns:
         df["depth_x_duration"] = df["koi_depth"] * df["koi_duration"]
-
-    # SNR ratio
     if "koi_model_snr" in df.columns and "koi_duration" in df.columns:
         df["snr_ratio"] = df["koi_model_snr"] / (df["koi_duration"] + 1e-9)
-
     print(f"Kepler features engineered: {df.shape[1]} cols")
     return df
 
 def engineer_tess_features(df):
-    # depth × duration interaction
     if "pl_trandep" in df.columns and "pl_trandurh" in df.columns:
         df["depth_x_duration"] = df["pl_trandep"] * df["pl_trandurh"]
-
-    # SNR ratio
     if "toi_model_snr" in df.columns and "pl_trandurh" in df.columns:
         df["snr_ratio"] = df["toi_model_snr"] / (df["pl_trandurh"] + 1e-9)
-
     print(f"TESS features engineered: {df.shape[1]} cols")
     return df
 
