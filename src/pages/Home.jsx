@@ -36,7 +36,7 @@ const StatBadge = ({ label, value, color, glow }) => (
 )
 
 export default function Home() {
-  const [form, setForm] = useState({ koi_period: '', koi_depth: '', koi_duration: '', koi_impact: '', koi_insol: '' })
+  const [form, setForm] = useState({ koi_period: '', koi_depth: '', koi_duration: '', koi_impact: '', koi_insol: '', koi_prad: '', koi_teq: '', koi_steff: '', koi_srad: '', koi_model_snr: '' })
   const [result, setResult] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -48,7 +48,7 @@ export default function Home() {
       const res = await fetch(`${API}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(form)
+        body: JSON.stringify(Object.fromEntries(Object.entries(form).map(([k, v]) => [k, parseFloat(v)])))
       })
       setResult(await res.json())
     } catch {
@@ -126,6 +126,11 @@ export default function Home() {
             { name: 'koi_duration', label: 'Transit Duration (hrs)' },
             { name: 'koi_impact', label: 'Impact Parameter' },
             { name: 'koi_insol', label: 'Insolation Flux' },
+{ name: 'koi_prad', label: 'Planet Radius' },
+{ name: 'koi_teq', label: 'Equilibrium Temp' },
+{ name: 'koi_steff', label: 'Stellar Temp' },
+{ name: 'koi_srad', label: 'Stellar Radius' },
+{ name: 'koi_model_snr', label: 'Model SNR' },
           ].map(({ name, label }) => (
             <div key={name}>
               <label style={{ fontSize: '0.72rem', color: '#475569', display: 'block', marginBottom: '5px', letterSpacing: '0.05em', textTransform: 'uppercase' }}>{label}</label>
