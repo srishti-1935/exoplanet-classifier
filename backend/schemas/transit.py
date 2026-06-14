@@ -12,8 +12,6 @@ class TransitRecord(BaseModel):
     koi_srad: float
     koi_teq: float
     koi_insol: float
-    depth_x_duration: float
-    snr_ratio: float
 
 class PredictionResult(BaseModel):
     label: str
