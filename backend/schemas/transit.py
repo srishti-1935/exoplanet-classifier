@@ -3,17 +3,17 @@ from typing import List
 
 class TransitRecord(BaseModel):
     koi_period: float
-    koi_time0bk: float
-    koi_impact: float
     koi_duration: float
     koi_depth: float
     koi_prad: float
+    koi_steff: float
+    koi_impact: float
+    koi_model_snr: float
+    koi_srad: float
     koi_teq: float
     koi_insol: float
-    koi_model_snr: float
-    koi_steff: float
-    koi_slogg: float
-    koi_srad: float
+    depth_x_duration: float
+    snr_ratio: float
 
 class PredictionResult(BaseModel):
     label: str
